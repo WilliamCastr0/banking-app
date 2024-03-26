@@ -1,0 +1,40 @@
+<aside
+  class="flex flex-col items-center h-screen w-64 border-none shadow-md shadow-bank-terciary"
+>
+  <figure class="py-9 px-8 mb-4">
+    <img src="/assets/images/logo.png" alt="bank-logo" />
+  </figure>
+  <nav class="w-full">
+    <ul>
+      <li class="flex flex-row gap-5 py-4 px-8 relative">
+        <a [routerLink]="['/']" class="w-full h-full absolute inset-0"></a>
+        <home-icon />
+        <span class="text-lg text-bank-terciary font-bold">Dashboard</span>
+      </li>
+      <li class="flex flex-row gap-5 py-4 px-8 relative">
+        <a
+          [routerLink]="['transactions']"
+          class="w-full h-full absolute inset-0"
+        ></a>
+        <transaction-icon />
+        <span class="text-lg text-bank-terciary font-bold">Transactions</span>
+      </li>
+      <li class="flex flex-row gap-5 py-4 px-8 relative">
+        <a
+          [routerLink]="['accounts']"
+          class="w-full h-full absolute inset-0"
+        ></a>
+        <account-icon />
+        <span class="text-lg text-bank-terciary font-bold">Accounts</span>
+      </li>
+      <li class="flex flex-row gap-5 py-4 px-8 relative">
+        <a
+          [routerLink]="['profile']"
+          class="w-full h-full absolute inset-0"
+        ></a>
+        <settings-icon />
+        <span class="text-lg text-bank-terciary font-bold">Setting</span>
+      </li>
+    </ul>
+  </nav>
+</aside>

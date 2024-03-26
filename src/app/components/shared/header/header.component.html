@@ -1,9 +1,9 @@
 <header
-  class="w-4/5 flex items-center justify-between h-24 py-5 px-9 border-b border-b-slate-300"
+  class="w-full flex items-center justify-between h-24 py-5 px-9 border-none shadow-sm shadow-bank-terciary"
 >
-  <h1 class="text-bank-primary-2 text-3xl font-semibold">Overview</h1>
+  <h1 class="text-bank-primary-2 text-3xl font-semibold">{{ title }}</h1>
   <article class="flex justify-end items-center gap-7">
-    <nav class="flex items-center justify-between">
+    <div class="flex items-center justify-between">
       <ul>
         <li>
           <a [routerLink]="['/']">
@@ -11,7 +11,7 @@
           </a>
         </li>
       </ul>
-    </nav>
+    </div>
     <div
       class="w-[50px] h-[50px] border border-slate-300 bg-slate-300 rounded-full flex items-center justify-center"
     >
