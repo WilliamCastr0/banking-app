@@ -1,5 +1,5 @@
 <article
-  class="border flex flex-row gap-3 md:hidden w-80 h-16 rounded-2xl bg-white py-3 px-5"
+  class="flex flex-row gap-3 lg:hidden w-80 h-16 rounded-2xl bg-white py-3 px-5"
 >
   <figure class="w-9 h-9 flex justify-center items-center">
     <img class="w-3 h-3" [src]="srcArrowTransaction" alt="" />
@@ -22,7 +22,7 @@
 </article>
 
 <article
-  class="hidden md:flex md:flex-row md:gap-4 md:w-full md:h-16 md:rounded-3xl md:bg-white md:py-3 md:px-8"
+  class="hidden lg:flex lg:flex-row lg:gap-4 lg:w-full lg:h-16 lg:rounded-3xl lg:bg-white lg:py-3 lg:px-8"
 >
   <figure class="w-9 h-9 flex justify-center items-center">
     <img class="w-3 h-3" [src]="srcArrowTransaction" alt="" />
@@ -31,7 +31,7 @@
     <p class="font-medium text-base text-bank-black">{{ titleTransaction }}</p>
     <p class="font-medium text-sm text-bank-primary-2">{{ dateTransaction }}</p>
   </section>
-  <section class="flex items-center">
+  <section class="lg:hidden xl:flex items-center">
     <span class="font-medium text-base text-bank-primary-2">
       {{ category }}
     </span>
