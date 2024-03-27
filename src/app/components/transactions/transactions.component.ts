@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
-import { HeaderComponent } from '../shared/header/header.component';
+import { TransactionCardComponent } from '../shared/transaction-card/transaction-card.component';
 
 @Component({
   selector: 'app-transactions',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [TransactionCardComponent, RouterLink, RouterOutlet],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.css',
 })
