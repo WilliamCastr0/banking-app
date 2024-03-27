@@ -1,0 +1,36 @@
+<article
+  *ngIf="!isForTransaction"
+  class="bg-white flex flex-row gap-3 lg:gap-4 items-center rounded-2xl w-40 h-24 lg:w-64 lg:h-32 py-5 px-4 lg:py-6 lg:px-9"
+>
+  <figure
+    class="rounded-full w-11 h-11 lg:w-16 lg:h-16 flex justify-center items-center"
+    [style.background-color]="iconBackground"
+  >
+    <img class="w-5 h-5" [src]="iconUrl" alt="account-card" />
+  </figure>
+  <section>
+    <p class="text-xs text-black/70">{{ title }}</p>
+    <p class="text-base font-semibold">${{ value }}</p>
+  </section>
+</article>
+
+<article
+  *ngIf="isForTransaction"
+  class="bg-white flex flex-row gap-1 lg:gap-5 items-center w-72 h-14 lg:w-80 lg:h-14"
+>
+  <figure
+    class="rounded-2xl w-14 h-14 flex justify-center items-center"
+    [style.background-color]="iconBackground"
+  >
+    <img class="w-5 h-5" [src]="iconUrl" alt="account-card" />
+  </figure>
+  <section class="grow flex flex-col gap-1 ml-3 lg:ml-0">
+    <p class="text-sm lg:text-base font-semibold text-[#333B69]">{{ title }}</p>
+    <p class="text-xs lg:text-sm text-[#718EBF]">{{ description }}</p>
+  </section>
+  <section *ngIf="withValue">
+    <p class="text-xs lg:text-base font-semibold text-bank-primary-2">
+      ${{ value }}
+    </p>
+  </section>
+</article>
