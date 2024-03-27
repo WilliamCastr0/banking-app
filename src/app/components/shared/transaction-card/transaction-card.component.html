@@ -1,0 +1,50 @@
+<article
+  class="border flex flex-row gap-3 md:hidden w-80 h-16 rounded-2xl bg-white py-3 px-5"
+>
+  <figure class="w-9 h-9 flex justify-center items-center">
+    <img class="w-3 h-3" [src]="srcArrowTransaction" alt="" />
+  </figure>
+  <section class="grow flex flex-col">
+    <p class="font-semibold text-sm text-bank-black">{{ titleTransaction }}</p>
+    <p class="font-medium text-xs text-bank-primary-2">{{ dateTransaction }}</p>
+  </section>
+  <section class="flex items-center">
+    <span class="font-medium text-sm"> {{ valueTransaction }} </span>
+  </section>
+  <section class="flex items-center">
+    <a
+      class="font-medium text-xs text-bank-primary-3"
+      [routerLink]="[urlDetails]"
+    >
+      See
+    </a>
+  </section>
+</article>
+
+<article
+  class="hidden md:flex md:flex-row md:gap-4 md:w-full md:h-16 md:rounded-3xl md:bg-white md:py-3 md:px-8"
+>
+  <figure class="w-9 h-9 flex justify-center items-center">
+    <img class="w-3 h-3" [src]="srcArrowTransaction" alt="" />
+  </figure>
+  <section class="grow flex flex-col">
+    <p class="font-medium text-base text-bank-black">{{ titleTransaction }}</p>
+    <p class="font-medium text-sm text-bank-primary-2">{{ dateTransaction }}</p>
+  </section>
+  <section class="flex items-center">
+    <span class="font-medium text-base text-bank-primary-2">
+      {{ category }}
+    </span>
+  </section>
+  <section class="flex items-center">
+    <span class="font-medium text-base">{{ valueTransaction }}</span>
+  </section>
+  <section class="flex items-center">
+    <a
+      class="font-medium text-base text-bank-primary-3"
+      [routerLink]="[urlDetails]"
+    >
+      View details
+    </a>
+  </section>
+</article>
