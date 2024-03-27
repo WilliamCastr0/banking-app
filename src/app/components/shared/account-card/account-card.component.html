@@ -10,7 +10,7 @@
   </figure>
   <section>
     <p class="text-xs lg:text-sm xl:text-base text-black/70">{{ title }}</p>
-    <p class="text-base font-semibold">${{ value }}</p>
+    <p class="text-base font-semibold">${{ value | number : "1.1-2" }}</p>
   </section>
 </article>
 
@@ -30,7 +30,7 @@
   </section>
   <section *ngIf="withValue">
     <p class="text-xs xl:text-base font-semibold text-bank-primary-2">
-      ${{ value }}
+      ${{ value | number : "1.1-2" }}
     </p>
   </section>
 </article>

@@ -12,7 +12,7 @@ export class AccountCardComponent {
   @Input() iconBackground: string = 'red';
   @Input() iconUrl: string = '';
   @Input() title: string = '';
-  @Input() value: string = '';
+  @Input() value: number = 0;
   @Input() isForTransaction: boolean = false;
   @Input() description: string = '';
   @Input() withValue: boolean = false;
