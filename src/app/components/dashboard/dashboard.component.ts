@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { MoneyCardComponent } from '../shared/money-card/money-card.component';
 import { AccountCardComponent } from '../shared/account-card/account-card.component';
 import { TransactionCardComponent } from '../shared/transaction-card/transaction-card.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+
+import { TransactionStore } from '../../transaction.store';
+import { Transaction } from '../../types/transaction';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,8 +19,63 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     TransactionCardComponent,
     RouterOutlet,
     RouterLink,
+    CommonModule,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+  transactionService: TransactionStore = inject(TransactionStore);
+  transactions$: Observable<Transaction[]> = this.store.state$;
+  DEPOSIT: string = 'Deposit';
+  WITHDRAWAL: string = 'Withdrawal';
+  transactionList: Transaction[] = [];
+  balance: number = 0;
+  income: number = 0;
+  expense: number = 0;
+  saving: number = 0;
+
+  constructor(private store: TransactionStore) {}
+
+  async ngOnInit() {
+    try {
+      this.store.getAllTransactions();
+      this.transactions$.subscribe((transactions) => {
+        this.transactionList = this.sortTransactionsByDate(transactions);
+        const income = this.getTotalIncome(this.transactionList);
+        const expense = this.getTotalExpense(this.transactionList);
+        const { balance } = this.transactionList[0];
+        this.balance = balance;
+        this.income = income;
+        this.expense = expense;
+      });
+    } catch (error: unknown) {
+      alert('Something went wrong!');
+    } finally {
+    }
+  }
+
+  sortTransactionsByDate(list: Transaction[]): Transaction[] {
+    return list.sort((a: Transaction, b: Transaction): number => {
+      return b.date - a.date;
+    });
+  }
+
+  getTotalIncome(list: Transaction[]): number {
+    const incomeTransactions = list.filter(
+      (item) => item.type !== this.WITHDRAWAL
+    );
+    return incomeTransactions.reduce((x, { amount }): number => {
+      return x + amount;
+    }, 0);
+  }
+
+  getTotalExpense(list: Transaction[]): number {
+    const expenseTransactions = list.filter(
+      (item) => item.type !== this.DEPOSIT
+    );
+    return expenseTransactions.reduce((x, { amount }): number => {
+      return x + amount;
+    }, 0);
+  }
+}

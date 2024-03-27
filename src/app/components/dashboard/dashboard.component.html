@@ -2,28 +2,28 @@
   <app-account-card
     class="w-fit"
     title="My Balance"
-    value="12,750"
+    [value]="balance"
     iconBackground="#FFF5D9"
     iconUrl="/assets/icons/money-bag.svg"
   ></app-account-card>
   <app-account-card
     class="w-fit"
     title="Income"
-    value="12,750"
+    [value]="income"
     iconBackground="#E7EDFF"
     iconUrl="/assets/icons/money-hand.svg"
   ></app-account-card>
   <app-account-card
     class="w-fit"
     title="Expense"
-    value="12,750"
+    [value]="expense"
     iconBackground="#FFE0EB"
     iconUrl="/assets/icons/expense.svg"
   ></app-account-card>
   <app-account-card
     class="w-fit"
     title="Total Saving"
-    value="12,750"
+    [value]="saving"
     iconBackground="#DCFAF8"
     iconUrl="/assets/icons/saving.svg"
   ></app-account-card>
@@ -65,10 +65,21 @@
       class="flex flex-col justify-center items-center lg:items-start bg-white rounded-2xl gap-3 w-fit lg:w-full mx-auto lg:mx-0"
     >
       <app-transaction-card
+        *ngFor="let transaction of transactionList.slice(0, 3)"
+        class="lg:w-full"
+        [titleTransaction]="transaction.type"
+        [dateTransaction]="transaction.date"
+        [valueTransaction]="transaction.amount"
+        [category]="transaction.category"
+        [id]="transaction.id"
+        [withHover]="false"
+      >
+      </app-transaction-card>
+      <!-- <app-transaction-card
         class="lg:w-full"
         titleTransaction="Spotify Subscription"
-        dateTransaction="28 Jan, 12.30 AM"
-        valueTransaction="150"
+        [dateTransaction]="1710778539480"
+        [valueTransaction]="150"
         category="Tech"
         urlDetails="/transactions"
       >
@@ -76,8 +87,8 @@
       <app-transaction-card
         class="lg:w-full"
         titleTransaction="Spotify Subscription"
-        dateTransaction="28 Jan, 12.30 AM"
-        valueTransaction="150"
+        [dateTransaction]="1710778539480"
+        [valueTransaction]="150"
         category="Tech"
         urlDetails="/transactions"
       >
@@ -85,12 +96,12 @@
       <app-transaction-card
         class="lg:w-full"
         titleTransaction="Spotify Subscription"
-        dateTransaction="28 Jan, 12.30 AM"
-        valueTransaction="150"
+        [dateTransaction]="1710778539480"
+        [valueTransaction]="150"
         category="Tech"
         urlDetails="/transactions"
       >
-      </app-transaction-card>
+      </app-transaction-card> -->
     </div>
   </section>
 </div>
