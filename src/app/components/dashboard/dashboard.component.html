@@ -1,1 +1,102 @@
-<p>dashboard works!</p>
+<section class="grid justify-items-center grid-cols-2 gap-4 lg:flex">
+  <app-account-card
+    class="w-fit"
+    title="My Balance"
+    value="12,750"
+    iconBackground="#FFF5D9"
+    iconUrl="/assets/icons/money-bag.svg"
+  ></app-account-card>
+  <app-account-card
+    class="w-fit"
+    title="Income"
+    value="12,750"
+    iconBackground="#E7EDFF"
+    iconUrl="/assets/icons/money-hand.svg"
+  ></app-account-card>
+  <app-account-card
+    class="w-fit"
+    title="Expense"
+    value="12,750"
+    iconBackground="#FFE0EB"
+    iconUrl="/assets/icons/expense.svg"
+  ></app-account-card>
+  <app-account-card
+    class="w-fit"
+    title="Total Saving"
+    value="12,750"
+    iconBackground="#DCFAF8"
+    iconUrl="/assets/icons/saving.svg"
+  ></app-account-card>
+</section>
+<div class="block lg:flex lg:flex-row lg:gap-7">
+  <section class="lg:order-2">
+    <div class="flex justify-between">
+      <h2 class="text-balance font-bold text-bank-primary-2 mt-6 mb-3">
+        My Cards
+      </h2>
+      <a
+        class="text-sm font-bold text-bank-primary-2 mt-6 mb-3 lg:hidden"
+        [routerLink]="['/accounts']"
+      >
+        See All
+      </a>
+    </div>
+    <div class="flex items-center justify-center">
+      <app-money-card class="block w-fit"></app-money-card>
+    </div>
+  </section>
+  <section class="lg:grow lg:order-1">
+    <div class="flex justify-between">
+      <h2 class="text-balance font-bold text-bank-primary-2 mt-6 mb-3">
+        Last Transactions
+      </h2>
+      <a
+        class="text-sm font-bold text-bank-primary-2 mt-6 mb-3 lg:hidden"
+        [routerLink]="['/transactions']"
+      >
+        See All
+      </a>
+    </div>
+    <div
+      class="flex flex-col justify-center items-center lg:items-start bg-white rounded-2xl gap-3 w-fit lg:w-full mx-auto lg:mx-0"
+    >
+      <app-transaction-card
+        class="lg:w-full"
+        titleTransaction="Spotify Subscription"
+        dateTransaction="28 Jan, 12.30 AM"
+        valueTransaction="150"
+        category="Tech"
+        urlDetails="/transactions"
+      >
+      </app-transaction-card>
+      <app-transaction-card
+        class="lg:w-full"
+        titleTransaction="Spotify Subscription"
+        dateTransaction="28 Jan, 12.30 AM"
+        valueTransaction="150"
+        category="Tech"
+        urlDetails="/transactions"
+      >
+      </app-transaction-card>
+      <app-transaction-card
+        class="lg:w-full"
+        titleTransaction="Spotify Subscription"
+        dateTransaction="28 Jan, 12.30 AM"
+        valueTransaction="150"
+        category="Tech"
+        urlDetails="/transactions"
+      >
+      </app-transaction-card>
+    </div>
+  </section>
+</div>
+
+<!-- <app-account-card
+title="Spotify Subscription"
+description="25 Jan 2021"
+[withValue]="true"
+[isForTransaction]="true"
+value="-150"
+iconBackground="#DCFAF8"
+iconUrl="/assets/icons/expense.svg"
+></app-account-card> -->
