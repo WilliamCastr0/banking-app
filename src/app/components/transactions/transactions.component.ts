@@ -37,7 +37,10 @@ export class TransactionsComponent {
   transactions$: Observable<Transaction[]> = this.store.state$;
   form = new FormBuilder();
   transactionForm = this.form.group({
-    value: ['', [Validators.required, Validators.min(1)]],
+    type: 'Withdrawal',
+    source: '7856 84 297 26', // TODO: Change the source according to the user logged
+    destination: null,
+    amount: ['', [Validators.required, Validators.min(1)]],
     category: ['', Validators.required],
     description: ['', [Validators.required]],
   });
