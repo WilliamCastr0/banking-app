@@ -1,13 +1,85 @@
 <h2
   class="text-balance lg:text-2xl font-bold text-bank-primary-2 mt-6 mb-3 lg:mb-6"
 >
-  Recent Transactions
+  Enviar plata
 </h2>
+<article
+  class="px-4 xl:px-7 py-3 xl:py-7 lg:w-[550px] xl:w-[650px] bg-white rounded-2xl"
+>
+  <p class="text-xs xl:text-base font-normal text-bank-black/80 mb-4">
+    Envia plata desde aquí a cualquier destino que tú elijas.
+  </p>
+  <form [formGroup]="transactionForm" (submit)="onSubmit()">
+    <section class="flex flex-col lg:flex-row lg:flex-wrap gap-4 mb-5">
+      <div class="flex flex-col lg:w-fit">
+        <label
+          for="value"
+          class="text-xs xl:text-base font-normal text-bank-black mb-2"
+          >Cuánta plata</label
+        >
+        <input
+          type="number"
+          aria-label="value"
+          class="rounded-lg border border-bank-black w-full lg:w-52 xl:w-64 h-10 xl:h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-xs xl:text-base text-[#718EBF]"
+          formControlName="value"
+          min="1"
+        />
+      </div>
+      <div class="flex flex-col lg:w-fit">
+        <label
+          for="category"
+          class="text-xs xl:text-base font-normal text-bank-black mb-2"
+          >Categoría</label
+        >
+        <input
+          type="text"
+          aria-label="category"
+          class="rounded-lg border border-bank-black w-full lg:w-52 xl:w-64 h-10 xl:h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-xs xl:text-base text-[#718EBF]"
+          formControlName="category"
+        />
+      </div>
+      <div class="flex flex-col lg:w-fit">
+        <label
+          for="description"
+          class="text-xs xl:text-base font-normal text-bank-black mb-2"
+          >Descripción</label
+        >
+        <input
+          type="text"
+          aria-label="description"
+          class="rounded-lg border border-bank-black w-full lg:w-52 xl:w-64 h-10 xl:h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-xs xl:text-base text-[#718EBF]"
+          formControlName="description"
+        />
+      </div>
+    </section>
+    <section class="w-full lg:w-28 h-10 xl:h-12">
+      <button
+        #transactionFormSubmitButton
+        type="submit"
+        class="w-full h-full rounded-lg bg-bank-primary-3 hover:bg-bank-primary-3/80 active:bg-bank-primary-3/90 disabled:bg-slate-300 transition-colors text-white text-base"
+        [disabled]="!transactionForm.valid"
+      >
+        {{ isLoadingTransactionFormSubmitButton ? "Enviando..." : "Enviar" }}
+      </button>
+    </section>
+  </form>
+</article>
+<div class="flex items-end gap-5 mt-6 mb-3 lg:mb-6">
+  <h2 class="text-balance lg:text-2xl font-bold text-bank-primary-2">
+    Mis últimas transferencias
+  </h2>
+  <a
+    class="text-sm underline font-bold text-bank-primary-2"
+    [routerLink]="['/transactions/all']"
+  >
+    Ver todas
+  </a>
+</div>
 <section
   class="flex flex-col justify-center items-center lg:items-start gap-3 w-fit lg:w-3/4 mx-auto lg:mx-0"
 >
   <app-transaction-card
-    *ngFor="let transaction of transactions$ | async as transactions"
+    *ngFor="let transaction of transactionList.slice(0, 4)"
     class="lg:w-full"
     [titleTransaction]="transaction.type"
     [dateTransaction]="transaction.date"
