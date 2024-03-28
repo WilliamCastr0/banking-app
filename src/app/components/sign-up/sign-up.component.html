@@ -1,1 +1,168 @@
-<p>sign-up works!</p>
+<main
+  class="block lg:hidden h-screen w-screen bg-gradient-to-t from-sky-500 to-indigo-500"
+>
+  <section class="h-[15%]"></section>
+  <article
+    class="h-full px-4 md:px-28 pt-6 md:pt-8 bg-white rounded-t-[44px] md:rounded-t-[88px]"
+  >
+    <h1 class="text-2xl font-bold text-bank-primary-2 mb-1">
+      Bienvenido a nosotros,
+    </h1>
+    <p class="text-xs font-medium text-bank-black">
+      ¿Tienes una cuenta?
+      <a
+        class="text-xs font-medium text-bank-primary-3"
+        [routerLink]="['/login']"
+      >
+        Inicia sesión
+      </a>
+    </p>
+    <figure class="flex items-center justify-center my-8">
+      <img src="assets/images/signup-mobile.png" alt="" />
+    </figure>
+    <section>
+      <form
+        class="flex flex-col pb-4"
+        [formGroup]="signupForm"
+        (submit)="onSubmit()"
+      >
+        <div class="flex flex-col lg:w-fit mb-5">
+          <label for="firstName"></label>
+          <input
+            placeholder="Tu nombre"
+            type="text"
+            aria-label="firstName"
+            class="rounded-lg border border-bank-black w-full lg:w-52 xl:w-64 h-10 xl:h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-xs xl:text-base text-[#718EBF]"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="flex flex-col lg:w-fit mb-5">
+          <label for="lastName"></label>
+          <input
+            placeholder="Tu apellido"
+            type="tel"
+            aria-label="lastName"
+            class="rounded-lg border border-bank-black w-full lg:w-52 xl:w-64 h-10 xl:h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-xs xl:text-base text-[#718EBF]"
+            formControlName="lastName"
+          />
+        </div>
+        <div class="flex flex-col lg:w-fit mb-5">
+          <label for="email"></label>
+          <input
+            placeholder="Email"
+            type="email"
+            aria-label="email"
+            class="rounded-lg border border-bank-black w-full lg:w-52 xl:w-64 h-10 xl:h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-xs xl:text-base text-[#718EBF]"
+            formControlName="email"
+          />
+          <small class="text-[#718EBF] mt-1"
+            >Ejm: your.name&#64;email.com</small
+          >
+        </div>
+        <div class="flex flex-col lg:w-fit mb-5">
+          <label for="password"></label>
+          <input
+            placeholder="Clave"
+            type="password"
+            aria-label="password"
+            class="rounded-lg border border-bank-black w-full lg:w-52 xl:w-64 h-10 xl:h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-xs xl:text-base text-[#718EBF]"
+            formControlName="password"
+          />
+          <small class="text-[#718EBF] mt-1"
+            >Tu clave debe tener al menos 8 caracteres</small
+          >
+        </div>
+        <button
+          type="submit"
+          class="w-full h-10 rounded-lg mt-7 bg-bank-primary-3 hover:bg-bank-primary-3/80 active:bg-bank-primary-3/90 disabled:bg-slate-300 transition-colors text-white text-base"
+          [disabled]="signupForm.invalid"
+        >
+          Crear cuenta
+        </button>
+      </form>
+    </section>
+  </article>
+</main>
+
+<main class="hidden h-screen w-screen lg:flex lg:flex-row">
+  <section class="w-2/4 bg-[#f6f6ff]">
+    <figure class="w-full h-full flex items-center justify-center">
+      <img
+        class="w-3/4 h-full object-contain"
+        src="assets/images/signup-desktop.png"
+        alt=""
+      />
+    </figure>
+  </section>
+  <section class="w-2/4 px-28 py-16 flex flex-col justify-center gap-14">
+    <div class="mb-20">
+      <h1 class="text-2xl font-bold text-bank-primary-2 mb-1">
+        Bienvenido a nosotros,
+      </h1>
+      <p class="text-xs font-medium text-bank-black">
+        ¿Tienes una cuenta?
+        <a
+          class="text-xs font-medium text-bank-primary-3"
+          [routerLink]="['/login']"
+        >
+          Inicia sesión
+        </a>
+      </p>
+    </div>
+    <form class="flex flex-col" [formGroup]="signupForm" (submit)="onSubmit()">
+      <div class="flex flex-row gap-4">
+        <div class="flex flex-col w-full mb-5">
+          <label for="firstName"></label>
+          <input
+            placeholder="Tu nombre"
+            type="text"
+            aria-label="firstName"
+            class="rounded-lg border border-bank-black w-full h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-base text-[#718EBF]"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="flex flex-col w-full mb-5">
+          <label for="lastName"></label>
+          <input
+            placeholder="Tu apellido"
+            type="text"
+            aria-label="lastName"
+            class="rounded-lg border border-bank-black w-full h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-base text-[#718EBF]"
+            formControlName="lastName"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col w-full mb-5">
+        <label for="email"></label>
+        <input
+          placeholder="Email"
+          type="email"
+          aria-label="email"
+          class="rounded-lg border border-bank-black w-full h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-base text-[#718EBF]"
+          formControlName="email"
+        />
+        <small class="text-[#718EBF] mt-1">Ejm: your.name&#64;email.com</small>
+      </div>
+      <div class="flex flex-col w-full mb-5">
+        <label for="password"></label>
+        <input
+          placeholder="Clave"
+          type="password"
+          aria-label="password"
+          class="rounded-lg border border-bank-black w-full h-12 transition-colors hover:border-bank-black/60 active:border-bank-black/80 focus:transition-colors px-3 py-4 text-base text-[#718EBF]"
+          formControlName="password"
+        />
+        <small class="text-[#718EBF] mt-1"
+          >Tu clave debe tener al menos 8 caracteres</small
+        >
+      </div>
+      <button
+        type="submit"
+        class="w-full h-12 rounded-lg mt-7 bg-bank-primary-3 hover:bg-bank-primary-3/80 active:bg-bank-primary-3/90 disabled:bg-slate-300 transition-colors text-white text-base"
+        [disabled]="signupForm.invalid"
+      >
+        Crear cuenta
+      </button>
+    </form>
+  </section>
+</main>
