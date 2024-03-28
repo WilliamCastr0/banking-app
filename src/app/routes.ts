@@ -6,6 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
+import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
+import { TransactionDetailComponent } from './components/transaction-detail/transaction-detail.component';
 
 const routeConfig: Routes = [
   {
@@ -42,6 +44,16 @@ const routeConfig: Routes = [
     path: 'transactions',
     component: TransactionsComponent,
     title: 'Transactions',
+  },
+  {
+    path: 'transactions/all',
+    component: TransactionListComponent,
+    title: 'Todas mis transferencias',
+  },
+  {
+    path: 'transactions/:id',
+    component: TransactionDetailComponent,
+    title: 'Detalle de transferencia',
   },
 ];
 
