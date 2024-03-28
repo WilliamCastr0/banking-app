@@ -1,0 +1,20 @@
+<h2
+  class="text-balance lg:text-2xl font-bold text-bank-primary-2 mt-6 mb-3 lg:mb-6"
+>
+  Todas mis transferencias
+</h2>
+<section
+  class="flex flex-col justify-center items-center lg:items-start gap-3 w-fit lg:w-3/4 mx-auto lg:mx-0"
+>
+  <app-transaction-card
+    *ngFor="let transaction of transactions$ | async as transactions"
+    class="lg:w-full"
+    [titleTransaction]="transaction.type"
+    [dateTransaction]="transaction.date"
+    [valueTransaction]="transaction.amount"
+    [category]="transaction.category"
+    [id]="transaction.id"
+    [withHover]="true"
+  >
+  </app-transaction-card>
+</section>
