@@ -44,8 +44,7 @@ export class DashboardComponent {
         this.transactionList = this.sortTransactionsByDate(transactions);
         const income = this.getTotalIncome(this.transactionList);
         const expense = this.getTotalExpense(this.transactionList);
-        const { balance } = this.transactionList[0];
-        this.balance = balance;
+        this.balance = this.transactionList[0]?.balance;
         this.income = income;
         this.expense = expense;
       });
