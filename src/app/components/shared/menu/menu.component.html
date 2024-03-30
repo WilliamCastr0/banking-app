@@ -8,43 +8,97 @@
   </figure>
   <nav class="w-full">
     <ul>
-      <li class="flex flex-row gap-5 py-4 px-8 relative">
+      <li
+        class="flex flex-row gap-5 py-4 px-8 relative scale hover:transition-all"
+        [ngClass]="{
+          'border-l-4 rou border-bank-primary-3': menuOption === 'dashboard'
+        }"
+      >
         <a
+          (click)="setMenuOption('dashboard')"
           aria-hidden="true"
           [routerLink]="['dashboard']"
           class="w-full h-full absolute inset-0"
         ></a>
-        <home-icon />
-        <span class="text-lg text-bank-primary-2 font-bold">Resumen</span>
+        <home-icon [isActive]="menuOption === 'dashboard'" />
+        <span
+          class="text-lg font-bold"
+          [ngClass]="
+            menuOption === 'dashboard'
+              ? 'text-bank-primary-3'
+              : 'text-bank-terciary'
+          "
+          >Resumen</span
+        >
       </li>
-      <li class="flex flex-row gap-5 py-4 px-8 relative">
+      <li
+        class="flex flex-row gap-5 py-4 px-8 relative hover:transition-all"
+        [ngClass]="{
+          'border-l-4 rou border-bank-primary-3': menuOption === 'transactions'
+        }"
+      >
         <a
+          (click)="setMenuOption('transactions')"
           aria-hidden="true"
           [routerLink]="['transactions']"
           class="w-full h-full absolute inset-0"
         ></a>
-        <transaction-icon />
-        <span class="text-lg text-bank-primary-2 font-bold"
+        <transaction-icon [isActive]="menuOption === 'transactions'" />
+        <span
+          class="text-lg font-bold"
+          [ngClass]="
+            menuOption === 'transactions'
+              ? 'text-bank-primary-2'
+              : 'text-bank-terciary'
+          "
           >Transferencias</span
         >
       </li>
-      <li class="flex flex-row gap-5 py-4 px-8 relative">
+      <li
+        class="flex flex-row gap-5 py-4 px-8 relative hover:transition-all"
+        [ngClass]="{
+          'border-l-4 rou border-bank-primary-3': menuOption === 'accounts'
+        }"
+      >
         <a
+          (click)="setMenuOption('accounts')"
           aria-hidden="true"
           [routerLink]="['accounts']"
           class="w-full h-full absolute inset-0"
         ></a>
-        <account-icon />
-        <span class="text-lg text-bank-primary-2 font-bold">Cuentas</span>
+        <account-icon [isActive]="menuOption === 'accounts'" />
+        <span
+          class="text-lg font-bold"
+          [ngClass]="
+            menuOption === 'accounts'
+              ? 'text-bank-primary-3'
+              : 'text-bank-terciary'
+          "
+          >Cuentas</span
+        >
       </li>
-      <li class="flex flex-row gap-5 py-4 px-8 relative">
+      <li
+        class="flex flex-row gap-5 py-4 px-8 relative hover:transition-all"
+        [ngClass]="{
+          'border-l-4 rou border-bank-primary-3': menuOption === 'profile'
+        }"
+      >
         <a
+          (click)="setMenuOption('profile')"
           aria-hidden="true"
           [routerLink]="['profile']"
           class="w-full h-full absolute inset-0"
         ></a>
-        <settings-icon />
-        <span class="text-lg text-bank-primary-2 font-bold">Perfil</span>
+        <settings-icon [isActive]="menuOption === 'profile'" />
+        <span
+          class="text-lg font-bold"
+          [ngClass]="
+            menuOption === 'profile'
+              ? 'text-bank-primary-2'
+              : 'text-bank-terciary'
+          "
+          >Perfil</span
+        >
       </li>
     </ul>
   </nav>

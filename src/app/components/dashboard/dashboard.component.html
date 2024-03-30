@@ -1,28 +1,28 @@
 <section class="grid justify-items-center grid-cols-2 gap-4 lg:flex">
   <app-account-card
     class="w-fit"
-    title="My Balance"
+    title="Mi balance"
     [value]="balance"
     iconBackground="#FFF5D9"
     iconUrl="/assets/icons/money-bag.svg"
   ></app-account-card>
   <app-account-card
     class="w-fit"
-    title="Income"
+    title="Ingresos"
     [value]="income"
     iconBackground="#E7EDFF"
     iconUrl="/assets/icons/money-hand.svg"
   ></app-account-card>
   <app-account-card
     class="w-fit"
-    title="Expense"
+    title="Gastos"
     [value]="expense"
     iconBackground="#FFE0EB"
     iconUrl="/assets/icons/expense.svg"
   ></app-account-card>
   <app-account-card
     class="w-fit"
-    title="Total Saving"
+    title="Ahorro"
     [value]="saving"
     iconBackground="#DCFAF8"
     iconUrl="/assets/icons/saving.svg"
@@ -45,13 +45,13 @@
   <section class="lg:grow lg:order-1">
     <div class="flex items-end gap-4 mt-6 mb-3 lg:mb-6">
       <h2 class="text-base lg:text-2xl font-bold text-bank-primary-2">
-        Last Transactions
+        Transferencias recientes
       </h2>
       <a
         class="text-sm underline font-bold text-bank-primary-2 lg:hidden"
         [routerLink]="['/transactions']"
       >
-        See All
+        Ver todo
       </a>
     </div>
     <div
@@ -71,13 +71,3 @@
     </div>
   </section>
 </div>
-
-<!-- <app-account-card
-  title="Spotify Subscription"
-  description="25 Jan 2021"
-  [withValue]="true"
-  [isForTransaction]="true"
-  [value]="150"
-  iconBackground="#DCFAF8"
-  iconUrl="/assets/icons/expense.svg"
-></app-account-card> -->
