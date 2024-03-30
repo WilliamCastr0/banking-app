@@ -10,42 +10,51 @@
     <ul>
       <li class="flex flex-row gap-5 py-4 px-8 relative">
         <a
+          aria-hidden="true"
           [routerLink]="['dashboard']"
           class="w-full h-full absolute inset-0"
         ></a>
         <home-icon />
-        <span class="text-lg text-bank-terciary font-bold">Dashboard</span>
+        <span class="text-lg text-bank-primary-2 font-bold">Resumen</span>
       </li>
       <li class="flex flex-row gap-5 py-4 px-8 relative">
         <a
+          aria-hidden="true"
           [routerLink]="['transactions']"
           class="w-full h-full absolute inset-0"
         ></a>
         <transaction-icon />
-        <span class="text-lg text-bank-terciary font-bold">Transactions</span>
+        <span class="text-lg text-bank-primary-2 font-bold"
+          >Transferencias</span
+        >
       </li>
       <li class="flex flex-row gap-5 py-4 px-8 relative">
         <a
+          aria-hidden="true"
           [routerLink]="['accounts']"
           class="w-full h-full absolute inset-0"
         ></a>
         <account-icon />
-        <span class="text-lg text-bank-terciary font-bold">Accounts</span>
+        <span class="text-lg text-bank-primary-2 font-bold">Cuentas</span>
       </li>
       <li class="flex flex-row gap-5 py-4 px-8 relative">
         <a
+          aria-hidden="true"
           [routerLink]="['profile']"
           class="w-full h-full absolute inset-0"
         ></a>
         <settings-icon />
-        <span class="text-lg text-bank-terciary font-bold">Setting</span>
+        <span class="text-lg text-bank-primary-2 font-bold">Perfil</span>
       </li>
     </ul>
   </nav>
 </aside>
 
-<nav class="block lg:hidden">
-  <label class="relative z-40 cursor-pointer px-3 py-6" for="mobile-menu">
+<aside class="block lg:hidden">
+  <label
+    class="block absolute top-5 w-14 h-14 z-40 cursor-pointer px-3 py-6"
+    for="mobile-menu"
+  >
     <input class="peer hidden" type="checkbox" id="mobile-menu" />
     <div
       class="relative z-50 block h-[2px] w-7 bg-black bg-transparent content-[''] before:absolute before:top-[-0.35rem] before:z-50 before:block before:h-full before:w-full before:bg-black before:transition-all before:duration-200 before:ease-out before:content-[''] after:absolute after:right-0 after:bottom-[-0.35rem] after:block after:h-full after:w-full after:bg-black after:transition-all after:duration-200 after:ease-out after:content-[''] peer-checked:bg-transparent before:peer-checked:top-0 before:peer-checked:w-full before:peer-checked:rotate-45 before:peer-checked:transform after:peer-checked:bottom-0 after:peer-checked:w-full after:peer-checked:-rotate-45 after:peer-checked:transform"
@@ -59,11 +68,61 @@
       <div
         class="float-right min-h-full w-[85%] bg-white px-6 pt-12 shadow-2xl"
       >
-        <menu>
-          <li><a href="/">Home</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </menu>
+        <nav>
+          <ul>
+            <li class="flex flex-row gap-5 py-4 px-8 relative">
+              <a
+                aria-hidden="true"
+                href="/dashboard"
+                target="_self"
+                class="w-full h-full absolute inset-0"
+              ></a>
+              <home-icon />
+              <span class="text-lg text-bank-primary-2 font-bold">Resumen</span>
+            </li>
+            <li class="flex flex-row gap-5 py-4 px-8 relative">
+              <a
+                aria-hidden="true"
+                href="/transactions"
+                target="_self"
+                class="w-full h-full absolute inset-0"
+              ></a>
+              <transaction-icon />
+              <span class="text-lg text-bank-primary-2 font-bold"
+                >Transferencias</span
+              >
+            </li>
+            <li class="flex flex-row gap-5 py-4 px-8 relative">
+              <a
+                aria-hidden="true"
+                href="/accounts"
+                target="_self"
+                class="w-full h-full absolute inset-0"
+              ></a>
+              <account-icon />
+              <span class="text-lg text-bank-primary-2 font-bold">Cuentas</span>
+            </li>
+            <li class="flex flex-row gap-5 py-4 px-8 relative">
+              <a
+                aria-hidden="true"
+                href="/profile"
+                target="_self"
+                class="w-full h-full absolute inset-0"
+              ></a>
+              <settings-icon />
+              <span class="text-lg text-bank-primary-2 font-bold">Perfil</span>
+            </li>
+            <li class="flex flex-row gap-5 relative">
+              <button
+                class="w-full h-10 rounded-lg mt-7 text-base bg-bank-primary-2 hover:bg-bank-primary-2/80 active:bg-bank-primary-2/90 text-white"
+                (click)="logout()"
+              >
+                Salir
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </label>
-</nav>
+</aside>
