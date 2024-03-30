@@ -1,1 +1,33 @@
-<p>profile works!</p>
+<article class="flex flex-col items-center gap-7">
+  <div
+    class="w-28 h-28 border border-bank-black/70 rounded-full flex items-center justify-center"
+  >
+    <span class="text-5xl font-semibold text-[#718EBF]">
+      {{ userName }}
+    </span>
+  </div>
+  <h2
+    class="text-lg lg:text-2xl font-bold text-bank-primary-2 mb-3 text-center"
+  >
+    Detalles de tu perfil
+  </h2>
+  <section
+    class="flex flex-col rounded-2xl bg-white shadow-lg shadow-bank-primary-3/15 w-11/12 h-auto p-4 lg:p-6 gap-4"
+  >
+    <p class="text-base font-bold text-bank-black text-center">
+      {{ userProfile.firstName }} {{ userProfile.lastName }}
+    </p>
+    <div class="flex flex-row justify-between border-b-2 pb-3">
+      <p class="text-base font-bold text-bank-black/70">Email</p>
+      <p class="text-base font-bold text-bank-black">
+        {{ userProfile.email }}
+      </p>
+    </div>
+    <div class="flex flex-row justify-between border-b-2 pb-3">
+      <p class="text-base font-bold text-bank-black/70">Cuentas asociadas</p>
+      <p class="text-base font-bold text-bank-black">
+        {{ userProfile.accounts.length }}
+      </p>
+    </div>
+  </section>
+</article>
