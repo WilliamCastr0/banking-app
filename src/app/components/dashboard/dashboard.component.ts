@@ -9,6 +9,8 @@ import { TransactionCardComponent } from '../shared/transaction-card/transaction
 
 import { TransactionStore } from '../../transaction.store';
 import { Transaction } from '../../types/transaction';
+import { UserStore } from '../../user/user.store';
+import User from '../../types/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,6 +29,9 @@ import { Transaction } from '../../types/transaction';
 export class DashboardComponent {
   transactionService: TransactionStore = inject(TransactionStore);
   transactions$: Observable<Transaction[]> = this.store.state$;
+  userService: UserStore = inject(UserStore);
+  user$: Observable<User> = this.userStore.state$;
+  userProfile: User = { firstName: '', lastName: '', accounts: [], email: '' };
   DEPOSIT: string = 'Deposit';
   WITHDRAWAL: string = 'Withdrawal';
   transactionList: Transaction[] = [];
@@ -35,10 +40,14 @@ export class DashboardComponent {
   expense: number = 0;
   saving: number = 0;
 
-  constructor(private store: TransactionStore) {}
+  constructor(private userStore: UserStore, private store: TransactionStore) {}
 
   async ngOnInit() {
     try {
+      this.userStore.getProfile();
+      this.user$.subscribe((user) => {
+        this.userProfile = user;
+      });
       this.store.getAllTransactions();
       this.transactions$.subscribe((transactions) => {
         this.transactionList = this.sortTransactionsByDate(transactions);

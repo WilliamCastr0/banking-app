@@ -31,10 +31,15 @@
 <div class="block lg:flex lg:flex-row lg:gap-7">
   <section class="lg:order-2">
     <h2 class="text-base lg:text-2xl font-bold text-bank-primary-2 mt-6 mb-3">
-      My Cards
+      Mi cuenta
     </h2>
     <div class="flex items-center justify-center">
-      <app-money-card class="block w-fit"></app-money-card>
+      <app-money-card
+        class="block w-fit"
+        [balance]="balance"
+        [firstName]="userProfile.firstName"
+        [account]="userProfile.accounts[0]"
+      ></app-money-card>
     </div>
   </section>
   <section class="lg:grow lg:order-1">
