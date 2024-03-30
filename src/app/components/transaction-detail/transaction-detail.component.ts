@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Observable, switchMap } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { Transaction } from '../../types/transaction';
 @Component({
   selector: 'app-transaction-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './transaction-detail.component.html',
   styleUrl: './transaction-detail.component.css',
 })

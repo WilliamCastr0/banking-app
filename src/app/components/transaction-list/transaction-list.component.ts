@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,7 +11,13 @@ import { Transaction } from '../../types/transaction';
 @Component({
   selector: 'app-transaction-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet, TransactionCardComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterOutlet,
+    RouterModule,
+    TransactionCardComponent,
+  ],
   templateUrl: './transaction-list.component.html',
   styleUrl: './transaction-list.component.css',
 })
@@ -23,7 +29,6 @@ export class TransactionListComponent {
   constructor(private store: TransactionStore, private toastr: ToastrService) {}
 
   async ngOnInit() {
-    // this.pageTitle = this.title.getTitle();
     try {
       this.store.getAllTransactions();
     } catch (error: unknown) {
