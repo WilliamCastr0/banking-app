@@ -8,5 +8,9 @@ export const authnGuard = async () => {
   const authnService = inject(AuthnService);
   const isLoggedIn = await authnService.isLoggedIn();
 
-  return isLoggedIn ? true : router.createUrlTree(['/login']);
+  if (isLoggedIn) {
+    return true;
+  }
+
+  return router.createUrlTree(['/login']);
 };
