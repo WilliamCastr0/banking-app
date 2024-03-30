@@ -15,6 +15,7 @@ import { LayoutMenuComponent } from './layouts/layout-menu/layout-menu.component
 export const routes: Routes = [
   {
     path: '',
+    canActivate: [authnGuard],
     component: LayoutMenuComponent,
     children: [
       {
