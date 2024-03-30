@@ -1,27 +1,17 @@
-# BankManagementApp
+# My banking app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+This application provides several services in a bank like:
+
+- Login: Signin with your credentials.
+- Sign up: Create your account.
+- Dashboard: A brief with your card, last transactions, balance, incomes, expenses and total saving.
+- Transactions: Section where you can create new transactions, see all transactions and review some details for each transaction.
+- Accounts: Your accounts details.
+- Profile: Your information.
+
+In addition, all sections are responsive and you can review all of them from your cellphone.
+The app implements Angular v17.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
