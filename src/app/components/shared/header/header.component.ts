@@ -1,6 +1,6 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { Observable, first } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { AuthnService } from '../../../auth/authn.service';
 import { UserStore } from '../../../user/user.store';
@@ -14,7 +14,6 @@ import User from '../../../types/user';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  @Input() title: string = 'Overview';
   userService: UserStore = inject(UserStore);
   user$: Observable<User> = this.userStore.state$;
   userName: string = '';
