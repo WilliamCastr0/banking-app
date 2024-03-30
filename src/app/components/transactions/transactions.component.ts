@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {
   FormBuilder,
@@ -14,6 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 import { TransactionCardComponent } from '../shared/transaction-card/transaction-card.component';
 import { TransactionStore } from '../../transaction.store';
 import { Transaction } from '../../types/transaction';
+import { UserStore } from '../../user/user.store';
+import User from '../../types/user';
 
 @Component({
   selector: 'app-transactions',
@@ -29,16 +30,20 @@ import { Transaction } from '../../types/transaction';
   styleUrl: './transactions.component.css',
 })
 export class TransactionsComponent {
-  // pageTitle: string = '';
   @ViewChild('transactionFormSubmitButton')
   transactionFormSubmitButtonRef!: ElementRef;
   transactionList: Transaction[] = [];
   transactionService: TransactionStore = inject(TransactionStore);
   transactions$: Observable<Transaction[]> = this.store.state$;
+  userService: UserStore = inject(UserStore);
+  user$: Observable<User> = this.userStore.state$;
+  userProfile: User = { firstName: '', lastName: '', accounts: [], email: '' };
   form = new FormBuilder();
+  WITHDRAWAL: string = 'Withdrawal';
+  source: string = '';
   transactionForm = this.form.group({
-    type: 'Withdrawal',
-    source: '7856 84 297 26', // TODO: Change the source according to the user logged
+    type: this.WITHDRAWAL,
+    source: this.source,
     destination: null,
     amount: ['', [Validators.required, Validators.min(1)]],
     category: ['', Validators.required],
@@ -47,14 +52,18 @@ export class TransactionsComponent {
   isLoadingTransactionFormSubmitButton: boolean = false;
 
   constructor(
-    public title: Title,
+    private userStore: UserStore,
     private store: TransactionStore,
     private toastr: ToastrService
   ) {}
 
   async ngOnInit() {
-    // this.pageTitle = this.title.getTitle();
     try {
+      this.userStore.getProfile();
+      this.user$.subscribe((user) => {
+        this.userProfile = user;
+        this.source = this.userProfile.accounts[0];
+      });
       this.store.getAllTransactions();
       this.transactions$.subscribe((transactions) => {
         this.transactionList = this.sortTransactionsByDate(transactions);
