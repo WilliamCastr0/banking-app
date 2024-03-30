@@ -7,20 +7,22 @@
     <div class="flex flex-col items-start gap-5 xl:gap-8">
       <div class="flex flex-col text-white">
         <p class="text-[10px] xl:text-xs font-normal">Balance</p>
-        <p class="text-sm xl:text-xl font-semibold">$4,123</p>
+        <p class="text-sm xl:text-xl font-semibold">
+          $ {{ balance | number : "1.1-2" }}
+        </p>
       </div>
       <div class="flex flex-row gap-10 xl:gap-[72px] text-white">
         <div class="flex flex-col gap-1">
           <p class="uppercase text-[10px] xl:text-xs text-white/70">
-            Card holder
+            Propietario
           </p>
-          <p class="text-sm xl:text-base font-bold">Eddy</p>
+          <p class="text-sm xl:text-base font-bold">
+            {{ firstName }}
+          </p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="uppercase text-[10px] xl:text-xs text-white/70">
-            Valid thru
-          </p>
-          <p class="text-sm xl:text-base font-bold">12/22</p>
+          <p class="uppercase text-[10px] xl:text-xs text-white/70">Válido</p>
+          <p class="text-sm xl:text-base font-bold">12/27</p>
         </div>
       </div>
     </div>
@@ -32,7 +34,7 @@
     class="flex flex-row gap-8 xl:gap-16 py-2 px-5 xl:py-6 xl:px-6 justify-between border-t"
   >
     <span class="text-base xl:text-xl font-semibold text-white">
-      3778 **** **** 1234
+      {{ account | hideAccount }}
     </span>
     <figure>
       <img [src]="urlMastercard" alt="mastercard-card-icon" />
