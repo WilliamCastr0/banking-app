@@ -19,12 +19,4 @@ export default class ApiService<T> {
   createTransaction(endpoint: string, data: T): Observable<T> {
     return this.http.post<T>(endpoint, data);
   }
-
-  getProfile(endpoint: string): Observable<T[]> {
-    return this.http.get<T[]>(endpoint);
-  }
-
-  getAllAccounts(endpoint: string): Observable<T[]> {
-    return this.http.get<T[]>(endpoint);
-  }
 }
