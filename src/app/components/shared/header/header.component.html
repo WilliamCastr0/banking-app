@@ -3,8 +3,15 @@
 >
   <h1 class="text-bank-primary-2 text-3xl font-semibold">{{ title }}</h1>
   <article class="flex justify-end items-center gap-7">
+    <div
+      class="w-[50px] h-[50px] border border-[#F5F7FA] bg-[#F5F7FA] rounded-full flex items-center justify-center"
+    >
+      <span class="text-2xl font-semibold text-[#718EBF]">
+        {{ userName }}
+      </span>
+    </div>
     <div class="flex items-center justify-between">
-      <ul>
+      <ul class="flex flex-row">
         <li>
           <a [routerLink]="['/']">
             <img src="/assets/icons/settings.svg" alt="settings" />
@@ -12,10 +19,17 @@
         </li>
       </ul>
     </div>
+
     <div
-      class="w-[50px] h-[50px] border border-slate-300 bg-slate-300 rounded-full flex items-center justify-center"
+      class="w-[50px] h-[50px] rounded-full border border-[#F5F7FA] bg-[#F5F7FA] flex justify-center items-center"
     >
-      <span class="text-2xl font-semibold">W</span>
+      <button
+        type="button"
+        (click)="logout()"
+        class="flex justify-center items-center"
+      >
+        <img class="w-6 h-6" src="/assets/icons/logout.svg" alt="" />
+      </button>
     </div>
   </article>
 </header>

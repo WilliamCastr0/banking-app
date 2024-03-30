@@ -1,5 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { Observable, first } from 'rxjs';
+
+import { AuthnService } from '../../../auth/authn.service';
+import { UserStore } from '../../../user/user.store';
+import User from '../../../types/user';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +15,24 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 })
 export class HeaderComponent {
   @Input() title: string = 'Overview';
+  userService: UserStore = inject(UserStore);
+  user$: Observable<User> = this.userStore.state$;
+  userName: string = '';
+
+  constructor(
+    private userStore: UserStore,
+    private authnService: AuthnService
+  ) {}
+
+  ngOnInit() {
+    this.userStore.getProfile();
+    this.user$.subscribe((user) => {
+      const { firstName } = user;
+      this.userName = firstName.substring(0, 1);
+    });
+  }
+
+  logout() {
+    this.authnService.logout();
+  }
 }
