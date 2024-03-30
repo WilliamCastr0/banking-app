@@ -11,7 +11,7 @@
       <li
         class="flex flex-row gap-5 py-4 px-8 relative scale hover:transition-all"
         [ngClass]="{
-          'border-l-4 rou border-bank-primary-3': menuOption === 'dashboard'
+          'border-l-4 border-bank-primary-3': menuOption === 'dashboard'
         }"
       >
         <a
@@ -34,7 +34,7 @@
       <li
         class="flex flex-row gap-5 py-4 px-8 relative hover:transition-all"
         [ngClass]="{
-          'border-l-4 rou border-bank-primary-3': menuOption === 'transactions'
+          'border-l-4 border-bank-primary-3': menuOption === 'transactions'
         }"
       >
         <a
@@ -48,7 +48,7 @@
           class="text-lg font-bold"
           [ngClass]="
             menuOption === 'transactions'
-              ? 'text-bank-primary-2'
+              ? 'text-bank-primary-3'
               : 'text-bank-terciary'
           "
           >Transferencias</span
@@ -57,7 +57,7 @@
       <li
         class="flex flex-row gap-5 py-4 px-8 relative hover:transition-all"
         [ngClass]="{
-          'border-l-4 rou border-bank-primary-3': menuOption === 'accounts'
+          'border-l-4 border-bank-primary-3': menuOption === 'accounts'
         }"
       >
         <a
@@ -80,7 +80,7 @@
       <li
         class="flex flex-row gap-5 py-4 px-8 relative hover:transition-all"
         [ngClass]="{
-          'border-l-4 rou border-bank-primary-3': menuOption === 'profile'
+          'border-l-4 border-bank-primary-3': menuOption === 'profile'
         }"
       >
         <a
@@ -94,7 +94,7 @@
           class="text-lg font-bold"
           [ngClass]="
             menuOption === 'profile'
-              ? 'text-bank-primary-2'
+              ? 'text-bank-primary-3'
               : 'text-bank-terciary'
           "
           >Perfil</span
@@ -132,7 +132,7 @@
                 class="w-full h-full absolute inset-0"
               ></a>
               <home-icon />
-              <span class="text-lg text-bank-primary-2 font-bold">Resumen</span>
+              <span class="text-lg text-bank-terciary font-bold">Resumen</span>
             </li>
             <li class="flex flex-row gap-5 py-4 px-8 relative">
               <a
@@ -142,7 +142,7 @@
                 class="w-full h-full absolute inset-0"
               ></a>
               <transaction-icon />
-              <span class="text-lg text-bank-primary-2 font-bold"
+              <span class="text-lg text-bank-terciary font-bold"
                 >Transferencias</span
               >
             </li>
@@ -154,7 +154,7 @@
                 class="w-full h-full absolute inset-0"
               ></a>
               <account-icon />
-              <span class="text-lg text-bank-primary-2 font-bold">Cuentas</span>
+              <span class="text-lg text-bank-terciary font-bold">Cuentas</span>
             </li>
             <li class="flex flex-row gap-5 py-4 px-8 relative">
               <a
@@ -164,7 +164,7 @@
                 class="w-full h-full absolute inset-0"
               ></a>
               <settings-icon />
-              <span class="text-lg text-bank-primary-2 font-bold">Perfil</span>
+              <span class="text-lg text-bank-terciary font-bold">Perfil</span>
             </li>
             <li class="flex flex-row gap-5 relative">
               <button
