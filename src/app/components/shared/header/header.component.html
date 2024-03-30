@@ -1,25 +1,22 @@
 <header
-  class="bg-white flex w-full items-center justify-between h-24 py-5 px-9 border-none shadow-sm shadow-bank-terciary"
+  class="bg-white flex w-full items-center justify-between h-24 py-5 md:px-14 lg:px-9 border-none shadow-sm shadow-bank-terciary"
 >
-  <h1 class="text-bank-primary-2 text-3xl font-semibold">{{ title }}</h1>
-  <article class="flex justify-end items-center gap-7">
+  <h1 class="hidden md:block text-bank-primary-2 text-3xl font-semibold">
+    ¡Bienvenido, de vuelta!
+  </h1>
+  <h1
+    class="block text-center grow md:hidden text-bank-primary-2 text-xl font-semibold"
+  >
+    ¡Bienvenido!
+  </h1>
+  <article class="hidden lg:flex justify-end items-center gap-7">
     <div
-      class="w-[50px] h-[50px] border border-[#F5F7FA] bg-[#F5F7FA] rounded-full flex items-center justify-center"
+      class="flex items-center justify-center w-[50px] h-[50px] border border-[#F5F7FA] bg-[#F5F7FA] rounded-full"
     >
       <span class="text-2xl font-semibold text-[#718EBF]">
         {{ userName }}
       </span>
     </div>
-    <div class="flex items-center justify-between">
-      <ul class="flex flex-row">
-        <li>
-          <a [routerLink]="['/']">
-            <img src="/assets/icons/settings.svg" alt="settings" />
-          </a>
-        </li>
-      </ul>
-    </div>
-
     <div
       class="w-[50px] h-[50px] rounded-full border border-[#F5F7FA] bg-[#F5F7FA] flex justify-center items-center"
     >
