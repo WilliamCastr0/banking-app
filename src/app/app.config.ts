@@ -11,9 +11,9 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom(HttpClientModule),
-    provideRouter(routes),
     provideAnimations(),
     provideToastr(),
+    provideRouter(routes),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthnInterceptor,
